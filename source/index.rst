@@ -7,19 +7,24 @@ Welcome to Ameba Arduino Documentation!
 
        .. toctree::
            :maxdepth: 1
+           :caption: EVB Boards:
 
            AMB82 mini <amebapro2/index>
 
-FAQ and Forum
-=============
+.. toctree::
+   :maxdepth: 1
+   :caption: FAQ and Forum:
 
-* `Ameba IoT FAQ <https://forum.amebaiot.com/c/faq/48>`_
+   Ameba IoT FAQ <FAQ/index>
 
-* `Ameba IoT Forum <https://forum.amebaiot.com/>`_
+   Ameba IoT Forum <https://forum.amebaiot.com/>
 
-Indices and tables
-==================
+   Ameba IoT Forum FAQ <https://forum.amebaiot.com/c/faq/48>
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. toctree::
+   :caption: All tags
+   :hidden:
+   :maxdepth: 2
+   :titlesonly:
+
+   _tags/tagsindex
