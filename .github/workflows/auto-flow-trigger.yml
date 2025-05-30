@@ -10,11 +10,16 @@ jobs:
   notify-repo:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug Token Visibility
+      - name: Check if secret is set
         env:
           RT_GH_PAT: ${{ secrets.RT_GH_PAT }}
         run: |
-          echo "Token starts with: $(echo \"$RT_GH_PAT\" | cut -c1-4)"
+          if [ -z "$RT_GH_PAT" ]; then
+            echo "❌ RT_GH_PAT is not set!"
+            exit 1
+          else
+            echo "✅ Token starts with: $(echo \"$RT_GH_PAT\" | cut -c1-4)"
+          fi
 
       - name: Trigger workflow in Repo
         env:
