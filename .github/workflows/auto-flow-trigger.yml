@@ -7,13 +7,13 @@ on:
   workflow_dispatch:  # Allow manual trigger
 
 jobs:
-  notify-repo-a:
+  notify-repo:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger workflow in Repo
         run: |
           curl -X POST \
             -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.All_realtek_job }}" \
+            -H "Authorization: Bearer ${{ secrets.RT_GH_PAT }}" \
             https://api.github.com/repos/M-ichae-l/My-private-test/actions/workflows/download-and-commit-pdf.yml/dispatches \
             -d '{"ref":"main"}'
