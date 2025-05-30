@@ -11,9 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger workflow in Repo
+        env:
+          RT_GH_PAT: ${{ secrets.RT_GH_PAT }}
         run: |
-          curl -v -X POST \
+          echo "Token starts with: ${RT_GH_PAT:0:4}"  # optional debug
+          curl -X POST \
             -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.RT_GH_PAT }}" \
+            -H "Authorization: Bearer $RT_GH_PAT" \
+            -H "Content-Type: application/json" \
             https://api.github.com/repos/M-ichae-l/My-private-test/actions/workflows/download-and-commit-pdf.yml/dispatches \
             -d '{"ref":"main"}'
+
